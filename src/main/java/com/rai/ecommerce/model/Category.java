@@ -9,7 +9,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @Column(name = "category_name")
     private @NotBlank String categoryName;
@@ -19,11 +19,21 @@ public class Category {
     @Column(name = "image_url")
     private @NotBlank String imageUrl;
 
-    public Integer getId() {
+    public Category() {
+    }
+
+    public Category(int id, String categoryName, String description, String imageUrl) {
+        this.id = id;
+        this.categoryName = categoryName;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
