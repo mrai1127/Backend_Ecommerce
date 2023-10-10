@@ -45,15 +45,4 @@ public class CategoryController {
         categoryService.editCategory(categoryId, category);
        return new ResponseEntity<>(new ApiResponse(true, "category has been updated"), HttpStatus.OK);
     }
-//    @DeleteMapping("/delete/{categoryId}")
-//    public ResponseEntity<ApiResponse> deleteCartItem(@PathVariable("categoryId") Integer categoryId){
-//        try {
-//            categoryService.deleteCategoryId(categoryId);
-//            return new ResponseEntity<>(new ApiResponse(true, "category has been deleted successfully"), HttpStatus.OK);
-//        }catch ( CustomException e) {
-//            return new ResponseEntity <>( new ApiResponse(true, "Category not found"), HttpStatus.NOT_FOUND);
-//        } catch (Exception e) {
-//           return new ResponseEntity <>( new ApiResponse(true, "An error occurred"), HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
 }
