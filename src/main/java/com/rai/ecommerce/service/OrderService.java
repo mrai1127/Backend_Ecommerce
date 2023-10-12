@@ -24,9 +24,9 @@ public class OrderService {
 
         //success and failure urls
 
-        String successURL = baseURL + "payment/success";
+        String successURL = baseURL + "/payment/success";
 
-        String failureURL = baseURL + "payment/failed";
+        String failureURL = baseURL + "/payment/failed";
 
         Stripe.apiKey = apiKey;
 
