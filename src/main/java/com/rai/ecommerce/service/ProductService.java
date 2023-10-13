@@ -1,6 +1,7 @@
 package com.rai.ecommerce.service;
 
 import com.rai.ecommerce.dto.ProductDto;
+import com.rai.ecommerce.exceptions.ProductNotFoundException;
 import com.rai.ecommerce.model.Category;
 import com.rai.ecommerce.model.Product;
 import com.rai.ecommerce.repository.ProductRepository;
@@ -61,4 +62,22 @@ public class ProductService {
         product.setPrice(productDto.getPrice());
         productRepository.save(product);
     }
+
+    public Product findById(Integer productId) throws ProductNotFoundException{
+
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if(optionalProduct.equals(Optional.empty())){
+            throw new ProductNotFoundException("product id is invalid: " + productId);
+        }
+        return optionalProduct.get();
+    }
+
+
+//    public Product findById(Integer productId) throws ProductNotExistException{
+//        Optional<Product> optionalProduct = productRepository.findById(productId);
+//        if(optionalProduct.equals(Optional.empty())){
+//            throw new ProductNotExistException("product id is invalid : " + productId);
+//        }
+//        return optionalProduct.get();
+//    }
 }
