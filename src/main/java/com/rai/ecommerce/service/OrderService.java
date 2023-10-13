@@ -24,9 +24,9 @@ public class OrderService {
 
         //success and failure urls
 
-        String successURL = baseURL + "payment/success";
+        String successURL = baseURL + "/payment/success";
 
-        String failureURL = baseURL + "payment/failed";
+        String failureURL = baseURL + "/payment/failed";
 
         Stripe.apiKey = apiKey;
 
@@ -56,7 +56,7 @@ public class OrderService {
     private SessionCreateParams.LineItem.PriceData createPriceDate(CheckoutItemDto checkoutItemDto) {
         return SessionCreateParams.LineItem.PriceData.builder()
                 .setCurrency("usd")
-                .setUnitAmount((long)checkoutItemDto.getPrice()*100)
+                .setUnitAmount((long)(checkoutItemDto.getPrice()*100))
                 .setProductData(
                         SessionCreateParams.LineItem.PriceData.ProductData.builder()
                                 .setName(checkoutItemDto.getProductName())
